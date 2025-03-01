@@ -1,29 +1,59 @@
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\AutoGestPro.exe
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\AutoGestPro.deps.json
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\AutoGestPro.runtimeconfig.json
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\AutoGestPro.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\AutoGestPro.pdb
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\AtkSharp.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\CairoSharp.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\GdkSharp.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\GioSharp.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\GLibSharp.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\GtkSharp.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\PangoSharp.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\obj\Debug\net9.0\AutoGestPro.csproj.AssemblyReference.cache
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\obj\Debug\net9.0\AutoGestPro.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\obj\Debug\net9.0\AutoGestPro.AssemblyInfoInputs.cache
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\obj\Debug\net9.0\AutoGestPro.AssemblyInfo.cs
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\obj\Debug\net9.0\AutoGestPro.csproj.CoreCompileInputs.cache
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\obj\Debug\net9.0\AutoGest.14E11A0F.Up2Date
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\obj\Debug\net9.0\AutoGestPro.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\obj\Debug\net9.0\refint\AutoGestPro.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\obj\Debug\net9.0\AutoGestPro.pdb
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\obj\Debug\net9.0\AutoGestPro.genruntimeconfig.cache
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\obj\Debug\net9.0\ref\AutoGestPro.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\QuickGraph.Data.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\QuickGraph.Graphviz.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\QuickGraph.Serialization.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\QuickGraph.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\Pastel.dll
-C:\Users\Javier\Desktop\Proyecto1EDD\AutoGestPro\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/AutoGestPro.exe
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/AutoGestPro.deps.json
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/AutoGestPro.runtimeconfig.json
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/AutoGestPro.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/AutoGestPro.pdb
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/AtkSharp.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/CairoSharp.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/GdkSharp.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/GioSharp.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/GLibSharp.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/GtkSharp.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/PangoSharp.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/obj/Debug/net9.0/AutoGestPro.csproj.AssemblyReference.cache
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/obj/Debug/net9.0/AutoGestPro.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/obj/Debug/net9.0/AutoGestPro.AssemblyInfoInputs.cache
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/obj/Debug/net9.0/AutoGestPro.AssemblyInfo.cs
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/obj/Debug/net9.0/AutoGestPro.csproj.CoreCompileInputs.cache
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/obj/Debug/net9.0/AutoGest.14E11A0F.Up2Date
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/obj/Debug/net9.0/AutoGestPro.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/obj/Debug/net9.0/refint/AutoGestPro.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/obj/Debug/net9.0/AutoGestPro.pdb
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/obj/Debug/net9.0/AutoGestPro.genruntimeconfig.cache
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/obj/Debug/net9.0/ref/AutoGestPro.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/QuickGraph.Data.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/QuickGraph.Graphviz.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/QuickGraph.Serialization.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/QuickGraph.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/Pastel.dll
+C:/Users/Javier/Desktop/Proyecto1EDD/AutoGestPro/bin/Debug/net9.0/Newtonsoft.Json.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/AutoGestPro
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/AutoGestPro.deps.json
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/AutoGestPro.runtimeconfig.json
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/AutoGestPro.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/AutoGestPro.pdb
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/AtkSharp.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/CairoSharp.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/GdkSharp.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/GioSharp.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/GLibSharp.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/GtkSharp.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/Newtonsoft.Json.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/PangoSharp.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/Pastel.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/QuickGraph.Data.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/QuickGraph.Graphviz.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/QuickGraph.Serialization.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/bin/Debug/net9.0/QuickGraph.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/Debug/net9.0/AutoGestPro.csproj.AssemblyReference.cache
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/Debug/net9.0/AutoGestPro.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/Debug/net9.0/AutoGestPro.AssemblyInfoInputs.cache
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/Debug/net9.0/AutoGestPro.AssemblyInfo.cs
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/Debug/net9.0/AutoGestPro.csproj.CoreCompileInputs.cache
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/Debug/net9.0/AutoGestPro.sourcelink.json
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/Debug/net9.0/AutoGest.14E11A0F.Up2Date
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/Debug/net9.0/AutoGestPro.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/Debug/net9.0/refint/AutoGestPro.dll
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/Debug/net9.0/AutoGestPro.pdb
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/Debug/net9.0/AutoGestPro.genruntimeconfig.cache
+/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/Debug/net9.0/ref/AutoGestPro.dll
