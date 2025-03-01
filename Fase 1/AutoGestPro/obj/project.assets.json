@@ -328,31 +328,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Javier\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/home/javier/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Javier\\Desktop\\LaboratorioEDD_202307775\\Fase 1\\AutoGestPro\\AutoGestPro.csproj",
+      "projectUniqueName": "/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/AutoGestPro.csproj",
       "projectName": "AutoGestPro",
-      "projectPath": "C:\\Users\\Javier\\Desktop\\LaboratorioEDD_202307775\\Fase 1\\AutoGestPro\\AutoGestPro.csproj",
-      "packagesPath": "C:\\Users\\Javier\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Javier\\Desktop\\LaboratorioEDD_202307775\\Fase 1\\AutoGestPro\\obj\\",
+      "projectPath": "/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/AutoGestPro.csproj",
+      "packagesPath": "/home/javier/.nuget/packages/",
+      "outputPath": "/mnt/c/Users/Javier/Desktop/LaboratorioEDD_202307775/Fase 1/AutoGestPro/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Javier\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/javier/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -414,7 +407,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/javier/.dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

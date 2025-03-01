@@ -118,11 +118,11 @@
         "runtime": {
           "lib/net4/QuickGraph.Data.dll": {
             "assemblyVersion": "3.6.61114.0",
-            "fileVersion": "3.6.61114.0"
+            "fileVersion": "0.0.0.0"
           },
           "lib/net4/QuickGraph.Graphviz.dll": {
             "assemblyVersion": "3.6.61114.0",
-            "fileVersion": "3.6.61114.0"
+            "fileVersion": "0.0.0.0"
           },
           "lib/net4/QuickGraph.Serialization.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -130,7 +130,7 @@
           },
           "lib/net4/QuickGraph.dll": {
             "assemblyVersion": "3.6.61114.0",
-            "fileVersion": "3.6.61114.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       }
