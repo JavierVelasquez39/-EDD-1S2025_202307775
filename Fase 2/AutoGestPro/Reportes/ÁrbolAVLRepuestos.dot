@@ -1,0 +1,6 @@
+digraph ArbolAVLRepuestos {
+node [shape=circle];
+"1" [label="ID: 1\nNombre: Filtro de aceite"];
+"1" -> "2";
+"2" [label="ID: 2\nNombre: Bujías"];
+}

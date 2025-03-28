@@ -1,0 +1,4 @@
+digraph ArbolBFacturas {
+node [shape=record];
+nodo72766 [label="<f1> ID: 1\nTotal: Q123.00|<f2> ID: 2\nTotal: Q125.00"];
+}

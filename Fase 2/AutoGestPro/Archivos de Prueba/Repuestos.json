@@ -1,0 +1,14 @@
+[
+    {
+    "ID": 1,
+    "Repuesto": "Filtro de aceite",
+    "Detalles": "Filtra impurezas del aceite del motor.",
+    "Costo": 25.50
+    },
+    {
+    "ID": 2,
+    "Repuesto": "Bujías",
+    "Detalles": "Se usa para laa mezcla de aire y combustible.",
+    "Costo": 15.75
+    }
+    ]

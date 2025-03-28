@@ -1,0 +1,7 @@
+digraph ListaSimpleUsuarios {
+rankdir=LR;
+node [shape=record];
+node0 [label="ID: 1\nCorreo: carlos.alberto@usac.com"];
+node0 -> node1;
+node1 [label="ID: 2\nCorreo: ana.lucia@usac.com"];
+}
