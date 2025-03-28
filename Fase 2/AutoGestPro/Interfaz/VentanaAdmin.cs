@@ -1,28 +1,13 @@
 using System;
 using Gtk;
-using AutoGestPro.Estructuras;
-using AutoGestPro.Interfaz;
+using AutoGestPro;
 
 namespace AutoGestPro.Interfaz
 {
     public class VentanaAdmin : Window
     {
-        // Referencias a las estructuras de datos
-        private ListaSimpleUsuarios listaUsuarios;
-        private ListaDobleVehiculos listaVehiculos;
-        private ArbolAVLRepuestos arbolRepuestos;
-        private ArbolBinarioServicios arbolServicios;
-        private ArbolBFacturas arbolFacturas;
-
-        public VentanaAdmin(ListaSimpleUsuarios listaUsuarios, ListaDobleVehiculos listaVehiculos, ArbolAVLRepuestos arbolRepuestos, ArbolBinarioServicios arbolServicios, ArbolBFacturas arbolFacturas) 
-            : base("Menú Administrador")
+        public VentanaAdmin() : base("Menú Administrador")
         {
-            this.listaUsuarios = listaUsuarios;
-            this.listaVehiculos = listaVehiculos;
-            this.arbolRepuestos = arbolRepuestos;
-            this.arbolServicios = arbolServicios;
-            this.arbolFacturas = arbolFacturas;
-
             // Configuración básica de la ventana
             SetDefaultSize(300, 400);
             SetPosition(WindowPosition.Center);
@@ -50,6 +35,11 @@ namespace AutoGestPro.Interfaz
                 contenedor.PackStart(boton, false, false, 0);
             }
 
+            // Botón "Cerrar Sesión"
+            Button cerrarSesionButton = new Button("Cerrar Sesión");
+            cerrarSesionButton.Clicked += OnCerrarSesionClicked;
+            contenedor.PackStart(cerrarSesionButton, false, false, 0);
+
             // Agregar el contenedor a la ventana
             Add(contenedor);
 
@@ -63,32 +53,47 @@ namespace AutoGestPro.Interfaz
         {
             Button boton = (Button)sender;
             Console.WriteLine($"Botón presionado: {boton.Label}");
-            // Aquí puedes agregar la lógica específica para cada botón
             switch (boton.Label)
             {
                 case "Cargas Masivas":
                     Console.WriteLine("Abrir ventana de Cargas Masivas");
-                    VentanaCargaMasiva ventanaCargaMasiva = new VentanaCargaMasiva(listaUsuarios, listaVehiculos, arbolRepuestos);
+                    VentanaCargaMasiva ventanaCargaMasiva = new VentanaCargaMasiva(
+                        DatosCompartidos.ListaUsuarios,
+                        DatosCompartidos.ListaVehiculos,
+                        DatosCompartidos.ArbolRepuestos
+                    );
                     ventanaCargaMasiva.Show();
                     break;
                 case "Gestión de Entidades":
                     Console.WriteLine("Abrir ventana de Gestión de Entidades");
-                    VentanaGestionEntidades ventanaGestionEntidades = new VentanaGestionEntidades(listaUsuarios, listaVehiculos);
+                    VentanaGestionEntidades ventanaGestionEntidades = new VentanaGestionEntidades(
+                        DatosCompartidos.ListaUsuarios,
+                        DatosCompartidos.ListaVehiculos
+                    );
                     ventanaGestionEntidades.Show();
                     break;
                 case "Actualización de Repuestos":
                     Console.WriteLine("Abrir ventana de Actualización de Repuestos");
-                    VentanaActualizacionRepuestos ventanaActualizacionRepuestos = new VentanaActualizacionRepuestos(arbolRepuestos);
+                    VentanaActualizacionRepuestos ventanaActualizacionRepuestos = new VentanaActualizacionRepuestos(
+                        DatosCompartidos.ArbolRepuestos
+                    );
                     ventanaActualizacionRepuestos.Show();
                     break;
                 case "Visualización de Repuestos":
                     Console.WriteLine("Abrir ventana de Visualización de Repuestos");
-                    VentanaVisualizacionRepuestos ventanaVisualizacionRepuestos = new VentanaVisualizacionRepuestos(arbolRepuestos);
+                    VentanaVisualizacionRepuestos ventanaVisualizacionRepuestos = new VentanaVisualizacionRepuestos(
+                        DatosCompartidos.ArbolRepuestos
+                    );
                     ventanaVisualizacionRepuestos.Show();
                     break;
                 case "Generar Servicios":
                     Console.WriteLine("Abrir ventana de Generar Servicios");
-                    VentanaGenerarServicio ventanaGenerarServicio = new VentanaGenerarServicio(arbolRepuestos, listaVehiculos, arbolServicios, arbolFacturas);
+                    VentanaGenerarServicio ventanaGenerarServicio = new VentanaGenerarServicio(
+                        DatosCompartidos.ArbolRepuestos,
+                        DatosCompartidos.ListaVehiculos,
+                        DatosCompartidos.ArbolServicios,
+                        DatosCompartidos.ArbolFacturas
+                    );
                     ventanaGenerarServicio.Show();
                     break;
                 case "Control de Logeo":
@@ -98,13 +103,26 @@ namespace AutoGestPro.Interfaz
                     break;
                 case "Generar Reportes":
                     Console.WriteLine("Abrir ventana de Generar Reportes");
-                    VentanaGenerarGrafica ventanaGenerarGrafica = new VentanaGenerarGrafica(listaUsuarios, listaVehiculos, arbolRepuestos, arbolServicios, arbolFacturas);
+                    VentanaGenerarGrafica ventanaGenerarGrafica = new VentanaGenerarGrafica(
+                        DatosCompartidos.ListaUsuarios,
+                        DatosCompartidos.ListaVehiculos,
+                        DatosCompartidos.ArbolRepuestos,
+                        DatosCompartidos.ArbolServicios,
+                        DatosCompartidos.ArbolFacturas
+                    );
                     ventanaGenerarGrafica.Show();
                     break;
                 default:
                     Console.WriteLine("Opción no reconocida");
                     break;
             }
+        }
+
+        private void OnCerrarSesionClicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("Cerrando sesión...");
+            Destroy(); // Cierra la ventana actual
+            new VentanaLogin().ShowAll(); // Muestra la ventana de inicio de sesión
         }
     }
 }

@@ -420,11 +420,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Javier\\Desktop\\LaboratorioEDD_202307775\\Fase 2\\AutoGestPro\\AutoGestPro.csproj",
+      "projectUniqueName": "C:\\Users\\Javier\\Desktop\\Laboratorio_EDD_202307775CC\\-EDD-1S2025_202307775\\Fase 2\\AutoGestPro\\AutoGestPro.csproj",
       "projectName": "AutoGestPro",
-      "projectPath": "C:\\Users\\Javier\\Desktop\\LaboratorioEDD_202307775\\Fase 2\\AutoGestPro\\AutoGestPro.csproj",
+      "projectPath": "C:\\Users\\Javier\\Desktop\\Laboratorio_EDD_202307775CC\\-EDD-1S2025_202307775\\Fase 2\\AutoGestPro\\AutoGestPro.csproj",
       "packagesPath": "C:\\Users\\Javier\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Javier\\Desktop\\LaboratorioEDD_202307775\\Fase 2\\AutoGestPro\\obj\\",
+      "outputPath": "C:\\Users\\Javier\\Desktop\\Laboratorio_EDD_202307775CC\\-EDD-1S2025_202307775\\Fase 2\\AutoGestPro\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

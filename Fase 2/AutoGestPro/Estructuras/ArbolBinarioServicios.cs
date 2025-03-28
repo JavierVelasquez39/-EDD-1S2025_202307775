@@ -2,6 +2,7 @@ using AutoGestPro.Modelos;
 
 namespace AutoGestPro.Estructuras
 {
+    [Serializable]
     public class ArbolBinarioServicios
     {
         private NodoServicio? raiz;
@@ -9,6 +10,12 @@ namespace AutoGestPro.Estructuras
         public ArbolBinarioServicios()
         {
             raiz = null;
+        }
+
+        // Propiedad pública para acceder al nodo raíz
+        public NodoServicio? Raiz
+        {
+            get { return raiz; }
         }
 
         // Método para insertar un servicio

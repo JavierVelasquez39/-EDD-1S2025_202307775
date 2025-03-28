@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9FEdFbusYNE=",
+  "dgSpecHash": "S30YT8hIYMk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Javier\\Desktop\\LaboratorioEDD_202307775\\Fase 2\\AutoGestPro\\AutoGestPro.csproj",
+  "projectFilePath": "C:\\Users\\Javier\\Desktop\\Laboratorio_EDD_202307775CC\\-EDD-1S2025_202307775\\Fase 2\\AutoGestPro\\AutoGestPro.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Javier\\.nuget\\packages\\atksharp\\3.22.24.10\\atksharp.3.22.24.10.nupkg.sha512",
     "C:\\Users\\Javier\\.nuget\\packages\\cairosharp\\3.22.24.10\\cairosharp.3.22.24.10.nupkg.sha512",

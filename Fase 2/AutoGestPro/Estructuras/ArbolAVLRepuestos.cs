@@ -2,6 +2,7 @@ using AutoGestPro.Modelos;
 
 namespace AutoGestPro.Estructuras
 {
+    [Serializable]
     public class ArbolAVLRepuestos
     {
         private NodoAVL? raiz;

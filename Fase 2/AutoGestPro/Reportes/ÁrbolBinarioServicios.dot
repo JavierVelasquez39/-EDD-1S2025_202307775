@@ -1,6 +1,8 @@
 digraph ArbolBinarioServicios {
 node [shape=record];
-"1" [label="ID: 1\nDetalles: Hola\nCosto: Q123.00"];
+"1" [label="ID: 1\nDetalles: Repuesto 1\nCosto: Q125.00"];
 "1" -> "2";
-"2" [label="ID: 2\nDetalles: adios\nCosto: Q125.00"];
+"2" [label="ID: 2\nDetalles: Repuesto 2\nCosto: Q120.00"];
+"2" -> "3";
+"3" [label="ID: 3\nDetalles: Repuesto 3\nCosto: Q121.00"];
 }

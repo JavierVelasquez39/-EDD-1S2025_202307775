@@ -3,6 +3,7 @@ using System;
 
 namespace AutoGestPro.Estructuras
 {
+    [Serializable]
     public class ArbolBFacturas
     {
         private NodoB? raiz;
@@ -11,6 +12,12 @@ namespace AutoGestPro.Estructuras
         public ArbolBFacturas()
         {
             raiz = null;
+        }
+
+        // Propiedad pública para acceder al nodo raíz
+        public NodoB? Raiz
+        {
+            get { return raiz; }
         }
 
         // Método para buscar una factura por ID
@@ -140,6 +147,202 @@ namespace AutoGestPro.Estructuras
                 {
                     InsertarEnNodo(nodo.Hijos[i]!, factura);
                 }
+            }
+        }
+
+        public void Eliminar(int id)
+        {
+            if (raiz == null)
+            {
+                Console.WriteLine("El árbol está vacío.");
+                return;
+            }
+
+            EliminarEnNodo(raiz, id);
+
+            // Si la raíz quedó vacía y no es hoja, ajustamos la raíz
+            if (raiz.Claves.Count == 0 && !raiz.EsHoja)
+            {
+                raiz = raiz.Hijos[0];
+            }
+            else if (raiz.Claves.Count == 0)
+            {
+                raiz = null;
+            }
+        }
+
+        private void EliminarEnNodo(NodoB nodo, int id)
+        {
+            int idx = 0;
+
+            // Encontrar la posición de la clave a eliminar
+            while (idx < nodo.Claves.Count && nodo.Claves[idx].Id < id)
+            {
+                idx++;
+            }
+
+            // Caso 1: La clave está en el nodo actual
+            if (idx < nodo.Claves.Count && nodo.Claves[idx].Id == id)
+            {
+                if (nodo.EsHoja)
+                {
+                    // Caso 1a: El nodo es hoja
+                    nodo.Claves.RemoveAt(idx);
+                }
+                else
+                {
+                    // Caso 1b: El nodo no es hoja
+                    EliminarClaveNoHoja(nodo, idx);
+                }
+            }
+            else
+            {
+                // Caso 2: La clave no está en el nodo actual
+                if (nodo.EsHoja)
+                {
+                    Console.WriteLine("La clave no está en el árbol.");
+                    return;
+                }
+
+                // Determinar si el hijo donde buscar tiene menos claves de las necesarias
+                bool ultimoHijo = (idx == nodo.Claves.Count);
+                if (nodo.Hijos[idx].Claves.Count < (Orden - 1) / 2)
+                {
+                    LlenarNodo(nodo, idx);
+                }
+
+                // Recursivamente eliminar en el hijo adecuado
+                if (ultimoHijo && idx > nodo.Claves.Count)
+                {
+                    EliminarEnNodo(nodo.Hijos[idx - 1], id);
+                }
+                else
+                {
+                    EliminarEnNodo(nodo.Hijos[idx], id);
+                }
+            }
+        }
+
+        private void EliminarClaveNoHoja(NodoB nodo, int idx)
+        {
+            Factura clave = nodo.Claves[idx];
+
+            // Caso 2a: El predecesor tiene suficientes claves
+            if (nodo.Hijos[idx].Claves.Count >= (Orden - 1) / 2)
+            {
+                Factura predecesor = ObtenerPredecesor(nodo, idx);
+                nodo.Claves[idx] = predecesor;
+                EliminarEnNodo(nodo.Hijos[idx], predecesor.Id);
+            }
+            else if (nodo.Hijos[idx + 1].Claves.Count >= (Orden - 1) / 2)
+            {
+                // Caso 2b: El sucesor tiene suficientes claves
+                Factura sucesor = ObtenerSucesor(nodo, idx);
+                nodo.Claves[idx] = sucesor;
+                EliminarEnNodo(nodo.Hijos[idx + 1], sucesor.Id);
+            }
+            else
+            {
+                // Caso 2c: Fusionar los hijos
+                FusionarNodos(nodo, idx);
+                EliminarEnNodo(nodo.Hijos[idx], clave.Id);
+            }
+        }
+
+        private Factura ObtenerPredecesor(NodoB nodo, int idx)
+        {
+            NodoB actual = nodo.Hijos[idx];
+            while (!actual.EsHoja)
+            {
+                actual = actual.Hijos[actual.Claves.Count];
+            }
+            return actual.Claves[actual.Claves.Count - 1];
+        }
+
+        private Factura ObtenerSucesor(NodoB nodo, int idx)
+        {
+            NodoB actual = nodo.Hijos[idx + 1];
+            while (!actual.EsHoja)
+            {
+                actual = actual.Hijos[0];
+            }
+            return actual.Claves[0];
+        }
+
+        private void FusionarNodos(NodoB nodo, int idx)
+        {
+            NodoB hijoIzquierdo = nodo.Hijos[idx];
+            NodoB hijoDerecho = nodo.Hijos[idx + 1];
+
+            // Mover la clave del nodo actual al hijo izquierdo
+            hijoIzquierdo.Claves.Add(nodo.Claves[idx]);
+
+            // Mover las claves del hijo derecho al hijo izquierdo
+            hijoIzquierdo.Claves.AddRange(hijoDerecho.Claves);
+
+            // Mover los hijos del hijo derecho al hijo izquierdo
+            if (!hijoIzquierdo.EsHoja)
+            {
+                hijoIzquierdo.Hijos.AddRange(hijoDerecho.Hijos);
+            }
+
+            // Eliminar la clave y el hijo derecho del nodo actual
+            nodo.Claves.RemoveAt(idx);
+            nodo.Hijos.RemoveAt(idx + 1);
+        }
+
+        private void LlenarNodo(NodoB nodo, int idx)
+        {
+            if (idx > 0 && nodo.Hijos[idx - 1].Claves.Count >= (Orden - 1) / 2)
+            {
+                TomarPrestadoIzquierda(nodo, idx);
+            }
+            else if (idx < nodo.Hijos.Count - 1 && nodo.Hijos[idx + 1].Claves.Count >= (Orden - 1) / 2)
+            {
+                TomarPrestadoDerecha(nodo, idx);
+            }
+            else
+            {
+                if (idx < nodo.Hijos.Count - 1)
+                {
+                    FusionarNodos(nodo, idx);
+                }
+                else
+                {
+                    FusionarNodos(nodo, idx - 1);
+                }
+            }
+        }
+
+        private void TomarPrestadoIzquierda(NodoB nodo, int idx)
+        {
+            NodoB hijo = nodo.Hijos[idx];
+            NodoB hermano = nodo.Hijos[idx - 1];
+
+            hijo.Claves.Insert(0, nodo.Claves[idx - 1]);
+            nodo.Claves[idx - 1] = hermano.Claves[hermano.Claves.Count - 1];
+            hermano.Claves.RemoveAt(hermano.Claves.Count - 1);
+
+            if (!hijo.EsHoja)
+            {
+                hijo.Hijos.Insert(0, hermano.Hijos[hermano.Hijos.Count - 1]);
+                hermano.Hijos.RemoveAt(hermano.Hijos.Count - 1);
+            }
+        }
+
+        private void TomarPrestadoDerecha(NodoB nodo, int idx)
+        {
+            NodoB hijo = nodo.Hijos[idx];
+            NodoB hermano = nodo.Hijos[idx + 1];
+
+            hijo.Claves.Add(nodo.Claves[idx]);
+            nodo.Claves[idx] = hermano.Claves[0];
+            hermano.Claves.RemoveAt(0);
+
+            if (!hijo.EsHoja)
+            {
+                hijo.Hijos.Add(hermano.Hijos[0]);
+                hermano.Hijos.RemoveAt(0);
             }
         }
 

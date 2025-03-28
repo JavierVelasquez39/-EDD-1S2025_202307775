@@ -4,6 +4,7 @@ using AutoGestPro.Modelos;
 
 namespace AutoGestPro.Estructuras
 {
+    [Serializable]
     public class ListaSimpleUsuarios
     {
         private NodoUsuario? cabeza;
@@ -122,6 +123,22 @@ namespace AutoGestPro.Estructuras
                 Console.WriteLine(actual.Usuario);
                 actual = actual.Siguiente!;
             }
+        }
+
+        // Método para buscar usuario por credenciales
+
+        public Usuario? BuscarUsuarioPorCredenciales(string correo, string contrasenia)
+        {
+            NodoUsuario? actual = cabeza;
+            while (actual != null)
+            {
+                if (actual.Usuario.Correo == correo && actual.Usuario.Contrasenia == contrasenia)
+                {
+                    return actual.Usuario;
+                }
+                actual = actual.Siguiente;
+            }
+            return null;
         }
 
         // Método para generar el archivo .dot
