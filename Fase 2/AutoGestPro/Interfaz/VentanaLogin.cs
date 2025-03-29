@@ -27,6 +27,8 @@ namespace AutoGestPro.Interfaz
             txtContrasenia.Visibility = false;
 
             Button btnLogin = new Button("Iniciar Sesión");
+
+            // Evento del botón de inicio de sesión
             btnLogin.Clicked += (sender, e) =>
             {
                 string correo = txtCorreo.Text;
@@ -36,6 +38,13 @@ namespace AutoGestPro.Interfaz
                 if (correo == "admin@usac.com" && contrasenia == "admint123")
                 {
                     Console.WriteLine("Inicio de sesión exitoso como administrador.");
+                    
+                    // Registrar entrada del administrador
+                    DatosCompartidos.ControlLog.RegistrarEntrada(correo);
+
+                    // Asignar el administrador como usuario actual
+                    DatosCompartidos.UsuarioActual = new Usuario(0, correo, "Administrador", "admin@usac.com", 1, "AdminRole");
+
                     Destroy();
                     VentanaAdmin ventanaAdmin = new VentanaAdmin();
                     ventanaAdmin.Show();
@@ -48,6 +57,13 @@ namespace AutoGestPro.Interfaz
                     if (usuario != null)
                     {
                         Console.WriteLine($"Inicio de sesión exitoso como usuario: {usuario.Correo}");
+                        
+                        // Registrar entrada del usuario
+                        DatosCompartidos.ControlLog.RegistrarEntrada(correo);
+
+                        // Asignar el usuario como usuario actual
+                        DatosCompartidos.UsuarioActual = usuario;
+
                         Destroy();
                         VentanaUsuarios ventanaUsuarios = new VentanaUsuarios();
                         ventanaUsuarios.Show();

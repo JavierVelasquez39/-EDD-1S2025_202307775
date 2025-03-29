@@ -98,10 +98,11 @@ namespace AutoGestPro.Interfaz
                 int idRepuesto = int.Parse(entryIdRepuesto.Text);
                 int idVehiculo = int.Parse(entryIdVehiculo.Text);
                 string detalles = entryDetalles.Text;
-                decimal costo = decimal.Parse(entryCosto.Text);
+                decimal costoServicio = decimal.Parse(entryCosto.Text);
 
                 // Validar existencia del repuesto y vehículo
-                if (arbolRepuestos.Buscar(idRepuesto) == null)
+                Repuesto? repuesto = arbolRepuestos.Buscar(idRepuesto);
+                if (repuesto == null)
                 {
                     MostrarMensaje("Error", $"El repuesto con ID {idRepuesto} no existe.");
                     return;
@@ -113,12 +114,15 @@ namespace AutoGestPro.Interfaz
                     return;
                 }
 
+                // Sumar el costo del servicio con el costo del repuesto
+                decimal costoTotal = costoServicio + repuesto.Costo;
+
                 // Crear y agregar el servicio
-                Servicio servicio = new Servicio(idServicio, idRepuesto, idVehiculo, detalles, costo);
+                Servicio servicio = new Servicio(idServicio, idRepuesto, idVehiculo, detalles, costoTotal);
                 arbolServicios.Insertar(servicio, arbolRepuestos, listaVehiculos);
 
                 // Generar factura automáticamente
-                Factura factura = new Factura(idServicio, idServicio, costo);
+                Factura factura = new Factura(idServicio, idServicio, costoTotal);
                 arbolFacturas.Insertar(factura);
 
                 MostrarMensaje("Éxito", $"Servicio y factura generados correctamente.\nFactura ID: {factura.Id}\nTotal: {factura.Total:C}");

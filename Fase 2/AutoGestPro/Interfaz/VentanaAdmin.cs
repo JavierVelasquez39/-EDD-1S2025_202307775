@@ -98,6 +98,7 @@ namespace AutoGestPro.Interfaz
                     break;
                 case "Control de Logeo":
                     Console.WriteLine("Abrir ventana de Control de Logeo");
+                    // Abrir la ventana de Control de Logueo solo cuando se selecciona esta opción
                     VentanaControlLogueo ventanaControlLogueo = new VentanaControlLogueo();
                     ventanaControlLogueo.Show();
                     break;
@@ -121,6 +122,16 @@ namespace AutoGestPro.Interfaz
         private void OnCerrarSesionClicked(object sender, EventArgs e)
         {
             Console.WriteLine("Cerrando sesión...");
+
+            // Registrar la salida del usuario actual
+            if (DatosCompartidos.UsuarioActual != null)
+            {
+                DatosCompartidos.ControlLog.RegistrarSalida(DatosCompartidos.UsuarioActual.Correo);
+            }
+
+            // Limpiar el usuario actual
+            DatosCompartidos.UsuarioActual = null;
+
             Destroy(); // Cierra la ventana actual
             new VentanaLogin().ShowAll(); // Muestra la ventana de inicio de sesión
         }

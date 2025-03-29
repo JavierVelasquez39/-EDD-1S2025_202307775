@@ -1,0 +1,47 @@
+[
+  {
+    "Usuario": "admin@usac.com",
+    "Entrada": "2025-03-28 17:58:31.016",
+    "Salida": "2025-03-28 18:13:39.779"
+  },
+  {
+    "Usuario": "carlos.alberto@usac.com",
+    "Entrada": "2025-03-28 17:59:40.844",
+    "Salida": "2025-03-28 18:14:39.225"
+  },
+  {
+    "Usuario": "admin@usac.com",
+    "Entrada": "2025-03-28 18:13:18.357",
+    "Salida": "2025-03-28 18:23:13.126"
+  },
+  {
+    "Usuario": "carlos.alberto@usac.com",
+    "Entrada": "2025-03-28 18:13:58.551",
+    "Salida": "2025-03-28 18:23:24.624"
+  },
+  {
+    "Usuario": "admin@usac.com",
+    "Entrada": "2025-03-28 18:23:48.417",
+    "Salida": "2025-03-28 18:24:27.185"
+  },
+  {
+    "Usuario": "ana.lucia@usac.com",
+    "Entrada": "2025-03-28 18:24:48.789",
+    "Salida": "2025-03-28 18:24:50.788"
+  },
+  {
+    "Usuario": "admin@usac.com",
+    "Entrada": "2025-03-28 18:25:00.557",
+    "Salida": "2025-03-28 18:28:27.483"
+  },
+  {
+    "Usuario": "admin@usac.com",
+    "Entrada": "2025-03-28 18:51:34.076",
+    "Salida": "2025-03-28 18:52:30.449"
+  },
+  {
+    "Usuario": "admin@usac.com",
+    "Entrada": "2025-03-28 18:57:07.301",
+    "Salida": ""
+  }
+]

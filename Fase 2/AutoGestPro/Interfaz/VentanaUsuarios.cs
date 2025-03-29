@@ -75,7 +75,7 @@ namespace AutoGestPro.Interfaz
                     Console.WriteLine("Abrir ventana para visualizar facturas");
                     VisualizacionFacturas ventanaFacturas = new VisualizacionFacturas(DatosCompartidos.ArbolFacturas);
                     ventanaFacturas.ShowAll();
-                break;
+                    break;
 
                 case "Cancelar Facturas":
                     Console.WriteLine("Abrir ventana para cancelar facturas");
@@ -92,6 +92,10 @@ namespace AutoGestPro.Interfaz
         private void OnCerrarSesionClicked(object sender, EventArgs e)
         {
             Console.WriteLine("Cerrando sesión...");
+
+            // Registrar la salida del usuario
+            DatosCompartidos.ControlLog.RegistrarSalida(DatosCompartidos.UsuarioActual.Correo);
+
             Destroy(); // Cierra la ventana actual
             new VentanaLogin().ShowAll(); // Muestra la ventana de inicio de sesión
         }
