@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "F2+7d8uTCWQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Javier\\Desktop\\Laboratorio_EDD_202307775CC\\-EDD-1S2025_202307775\\Fase 3\\AutoGestPro\\Fase 3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Javier\\.nuget\\packages\\atksharp\\3.22.24.10\\atksharp.3.22.24.10.nupkg.sha512",
+    "C:\\Users\\Javier\\.nuget\\packages\\cairosharp\\3.22.24.10\\cairosharp.3.22.24.10.nupkg.sha512",
+    "C:\\Users\\Javier\\.nuget\\packages\\gdksharp\\3.22.24.10\\gdksharp.3.22.24.10.nupkg.sha512",
+    "C:\\Users\\Javier\\.nuget\\packages\\giosharp\\3.22.24.10\\giosharp.3.22.24.10.nupkg.sha512",
+    "C:\\Users\\Javier\\.nuget\\packages\\glibsharp\\3.22.24.10\\glibsharp.3.22.24.10.nupkg.sha512",
+    "C:\\Users\\Javier\\.nuget\\packages\\gtksharp\\3.22.24.10\\gtksharp.3.22.24.10.nupkg.sha512",
+    "C:\\Users\\Javier\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Javier\\.nuget\\packages\\pangosharp\\3.22.24.10\\pangosharp.3.22.24.10.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Fase 3 depends on GtkSharp (>= 3.22.24) but GtkSharp 3.22.24 was not found. GtkSharp 3.22.24.10 was resolved instead.",
+      "libraryId": "GtkSharp",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
+}

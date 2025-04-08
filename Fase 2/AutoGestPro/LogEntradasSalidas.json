@@ -42,6 +42,21 @@
   {
     "Usuario": "admin@usac.com",
     "Entrada": "2025-03-28 18:57:07.301",
+    "Salida": "2025-04-02 08:01:33.807"
+  },
+  {
+    "Usuario": "carlos.alberto@usac.com",
+    "Entrada": "2025-04-02 08:01:52.820",
+    "Salida": "2025-04-02 08:02:11.526"
+  },
+  {
+    "Usuario": "admin@usac.com",
+    "Entrada": "2025-04-02 12:38:12.975",
+    "Salida": "2025-04-02 12:53:20.900"
+  },
+  {
+    "Usuario": "ana.lucia@usac.com",
+    "Entrada": "2025-04-02 12:53:49.415",
     "Salida": ""
   }
 ]

@@ -1,6 +1,32 @@
 digraph ArbolAVLRepuestos {
 node [shape=circle];
-"1" [label="ID: 1\nNombre: Filtro de aceite"];
-"1" -> "2";
+"8" [label="ID: 8\nNombre: Correa de distribución"];
+"8" -> "4";
+"4" [label="ID: 4\nNombre: Pastillas de freno traseras"];
+"4" -> "2";
 "2" [label="ID: 2\nNombre: Bujías"];
+"2" -> "1";
+"1" [label="ID: 1\nNombre: Motor"];
+"2" -> "3";
+"3" [label="ID: 3\nNombre: Frenos delanteros"];
+"4" -> "6";
+"6" [label="ID: 6\nNombre: Aceite de motor"];
+"6" -> "5";
+"5" [label="ID: 5\nNombre: Amortiguadores"];
+"6" -> "7";
+"7" [label="ID: 7\nNombre: Filtro de aire"];
+"8" -> "12";
+"12" [label="ID: 12\nNombre: Espejos laterales"];
+"12" -> "10";
+"10" [label="ID: 10\nNombre: Batería"];
+"10" -> "9";
+"9" [label="ID: 9\nNombre: Radiador"];
+"10" -> "11";
+"11" [label="ID: 11\nNombre: Cables de encendido"];
+"12" -> "14";
+"14" [label="ID: 14\nNombre: Suspensión trasera"];
+"14" -> "13";
+"13" [label="ID: 13\nNombre: Manguera de radiador"];
+"14" -> "15";
+"15" [label="ID: 15\nNombre: Bombas de freno"];
 }
