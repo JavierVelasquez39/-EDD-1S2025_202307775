@@ -1,0 +1,8 @@
+digraph ListaDobleVehiculos {
+rankdir=LR;
+node [shape=record];
+node0 [label="ID: 1\nID Usuario: 1\nMarca: Honda Civic\nModelo: 2005\nPlaca: XZJ7H9K"];
+node0 -> node1;
+node1 -> node0;
+node1 [label="ID: 2\nID Usuario: 2\nMarca: Toyota Corolla\nModelo: 2010\nPlaca: JKS8T5A"];
+}

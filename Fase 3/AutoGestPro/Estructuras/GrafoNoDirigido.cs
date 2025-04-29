@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using AutoGestPro.Modelos;
 
 namespace AutoGestPro.Estructuras
@@ -91,6 +93,68 @@ namespace AutoGestPro.Estructuras
                     Console.Write($"{adyacente} ");
                 }
                 Console.WriteLine();
+            }
+        }
+
+        public void GenerarDot(string filePath)
+        {
+            string dotFilePath = Path.Combine(filePath, "GrafoNoDirigido.dot");
+            string imageFilePath = Path.Combine(filePath, "GrafoNoDirigido.png");
+
+            using (StreamWriter writer = new StreamWriter(dotFilePath))
+            {
+                writer.WriteLine("graph GrafoNoDirigido {");
+                writer.WriteLine("node [shape=circle];");
+
+                // Generar nodos y aristas
+                foreach (var nodo in nodos.Values)
+                {
+                    writer.WriteLine($"\"{nodo.Id}\" [label=\"{nodo.Tipo}: {nodo.Id}\"];");
+
+                    foreach (var adyacente in nodo.Adyacentes)
+                    {
+                        if (nodo.Id < adyacente.Id) // Evitar duplicar aristas
+                        {
+                            writer.WriteLine($"\"{nodo.Id}\" -- \"{adyacente.Id}\";");
+                        }
+                    }
+                }
+
+                writer.WriteLine("}");
+            }
+
+            // Generar la imagen utilizando Graphviz
+            GenerarImagen(dotFilePath, imageFilePath);
+        }
+
+        private void GenerarImagen(string dotFilePath, string imageFilePath)
+        {
+            try
+            {
+                Process process = new Process();
+                process.StartInfo.FileName = "dot";
+                process.StartInfo.Arguments = $"-Tpng \"{dotFilePath}\" -o \"{imageFilePath}\"";
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.RedirectStandardError = true;
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.CreateNoWindow = true;
+
+                process.Start();
+                process.WaitForExit();
+
+                if (process.ExitCode == 0)
+                {
+                    Console.WriteLine($"✅ Imagen del Grafo No Dirigido generada correctamente: {imageFilePath}");
+                }
+                else
+                {
+                    string error = process.StandardError.ReadToEnd();
+                    Console.WriteLine($"❌ Error al generar la imagen del Grafo No Dirigido: {error}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Error al ejecutar Graphviz: {ex.Message}");
             }
         }
     }

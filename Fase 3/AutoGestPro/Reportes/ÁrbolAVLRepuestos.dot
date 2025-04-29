@@ -1,0 +1,6 @@
+digraph ArbolAVLRepuestos {
+node [shape=record];
+"1" [label="{ID: 1|Nombre: Filtro de aceite|Detalles: Filtra impurezas del aceite del motor.|Costo: Q25.50}"];
+"1" -> "2";
+"2" [label="{ID: 2|Nombre: Bujías|Detalles: Se usa para laa mezcla de aire y combustible.|Costo: Q15.75}"];
+}

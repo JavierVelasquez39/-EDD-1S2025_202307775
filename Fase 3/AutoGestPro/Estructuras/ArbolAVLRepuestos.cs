@@ -184,7 +184,7 @@ namespace AutoGestPro.Estructuras
             using (StreamWriter writer = new StreamWriter(filePath))
             {
                 writer.WriteLine("digraph ArbolAVLRepuestos {");
-                writer.WriteLine("node [shape=circle];");
+                writer.WriteLine("node [shape=record];"); // Cambiar a 'record' para mostrar múltiples datos en el nodo
 
                 if (raiz != null)
                 {
@@ -199,8 +199,8 @@ namespace AutoGestPro.Estructuras
 
         private void GenerarDotRecursivo(NodoAVL nodo, StreamWriter writer)
         {
-            // Crear el nodo actual
-            writer.WriteLine($"\"{nodo.Repuesto.Id}\" [label=\"ID: {nodo.Repuesto.Id}\\nNombre: {nodo.Repuesto.Nombre}\"];");
+            // Crear el nodo actual con los nuevos detalles
+            writer.WriteLine($"\"{nodo.Repuesto.Id}\" [label=\"{{ID: {nodo.Repuesto.Id}|Nombre: {nodo.Repuesto.Nombre}|Detalles: {nodo.Repuesto.Detalles}|Costo: {nodo.Repuesto.Costo:C}}}\"];");
 
             // Conexión con el hijo izquierdo
             if (nodo.Izquierdo != null)

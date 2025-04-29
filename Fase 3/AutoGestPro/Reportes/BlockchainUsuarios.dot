@@ -1,0 +1,11 @@
+digraph Blockchain {
+rankdir=LR;
+node [shape=record];
+"Block 0" [label="{Index: 0|Usuario: Genesis|Correo: genesis@blockchain.com|Hash: 00007d46bd6b7b42afdb10cccf7850856d5b3a87f83718ca31c67b9288c3822b|PreviousHash: 0000}"];
+"Block 0" [label="{Index: 0|Usuario: Genesis|Correo: genesis@blockchain.com|Hash: 0000e5da3ef88c3e66907606fe84f70da8a2235c894499c2cae12c6b0477505a|PreviousHash: 0000}"];
+"Block 0" -> "Block 0";
+"Block 1" [label="{Index: 1|Usuario: Admin USAC|Correo: admin@usac.com|Hash: 0000ac1cced52c550ae83736f15fb7aa49a75080be83706889d30b540c090025|PreviousHash: 0000e5da3ef88c3e66907606fe84f70da8a2235c894499c2cae12c6b0477505a}"];
+"Block 0" -> "Block 1";
+"Block 2" [label="{Index: 2|Usuario: Javier Velasquez|Correo: javier@usac.com|Hash: 000033ecee995b360866a883a58d0a816345e406d5a9493d30ca26abb94549a1|PreviousHash: 0000ac1cced52c550ae83736f15fb7aa49a75080be83706889d30b540c090025}"];
+"Block 1" -> "Block 2";
+}

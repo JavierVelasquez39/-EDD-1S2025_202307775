@@ -1,4 +1,6 @@
+using System;
 using Gtk;
+using AutoGestPro.Estructuras;
 
 namespace AutoGestPro.Interfaz
 {
@@ -31,30 +33,60 @@ namespace AutoGestPro.Interfaz
 
             // Botón de inicio de sesión
             Button btnLogin = new Button("Iniciar Sesión");
-
-            // Evento del botón de inicio de sesión
             btnLogin.Clicked += (sender, e) =>
             {
-                string correo = txtCorreo.Text;
-                string contrasenia = txtContrasenia.Text;
+                string correo = txtCorreo.Text?.Trim() ?? "";
+                string contrasenia = txtContrasenia.Text ?? "";
+
+                if (string.IsNullOrEmpty(correo) || string.IsNullOrEmpty(contrasenia))
+                {
+                    MostrarMensaje("Error", "Por favor ingrese correo y contraseña.");
+                    return;
+                }
 
                 // Verificar si es el administrador
-                if (correo == "admin@usac.com" && contrasenia == "admint123")
+                if (correo == "admin@usac.com" && contrasenia == "admin123")
                 {
                     Console.WriteLine("Inicio de sesión exitoso como administrador.");
+                    
+                    // Registrar entrada del administrador en el control de logueo
+                    DatosCompartidos.ControlLog.RegistrarEntrada("Administrador");
+                    
+                    // Abrir la ventana de administrador
+                    VentanaAdmin ventanaAdmin = new VentanaAdmin();
+                    ventanaAdmin.Show();
+
+                    // Cerrar la ventana de login
+                    this.Destroy();
                 }
                 else
                 {
-                    // Mostrar mensaje de error
-                    using (MessageDialog dialog = new MessageDialog(
-                        this,
-                        DialogFlags.Modal,
-                        MessageType.Error,
-                        ButtonsType.Ok,
-                        "Correo o contraseña incorrectos."
-                    ))
+                    // Intentar autenticar con el blockchain desde DatosCompartidos
+                    Console.WriteLine($"Intentando autenticar usuario: {correo}");
+                    Block? bloqueUsuario = DatosCompartidos.BlockchainUsuarios.AutenticarUsuario(correo, contrasenia);
+                    
+                    if (bloqueUsuario != null)
                     {
-                        dialog.Run();
+                        // Registro exitoso
+                        string nombreCompleto = bloqueUsuario.Usuario;
+                        Console.WriteLine($"Inicio de sesión exitoso para: {nombreCompleto}");
+                        
+                        // Guardar el bloque del usuario actual en los datos compartidos
+                        DatosCompartidos.UsuarioActual = bloqueUsuario;
+                        
+                        // Registrar entrada del usuario en el control de logueo
+                        DatosCompartidos.ControlLog.RegistrarEntrada(nombreCompleto);
+                        
+                        // Abrir la ventana de usuario normal
+                        VentanaUsuario ventanaUsuario = new VentanaUsuario(bloqueUsuario);
+                        ventanaUsuario.Show();
+
+                        // Cerrar la ventana de login
+                        this.Destroy();;
+                    }
+                    else
+                    {
+                        MostrarMensaje("Error", "Correo o contraseña incorrectos.");
                     }
                 }
             };
@@ -70,6 +102,20 @@ namespace AutoGestPro.Interfaz
             // Agregar el contenedor a la ventana
             Add(vbox);
             ShowAll();
+        }
+
+        private void MostrarMensaje(string titulo, string mensaje)
+        {
+            using (MessageDialog dialog = new MessageDialog(
+                this,
+                DialogFlags.Modal,
+                titulo == "Error" ? MessageType.Error : MessageType.Info,
+                ButtonsType.Ok,
+                mensaje))
+            {
+                dialog.Run();
+                dialog.Destroy();
+            }
         }
     }
 }

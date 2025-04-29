@@ -1,0 +1,9 @@
+digraph Blockchain {
+rankdir=TB;
+node [shape=record];
+"Bloque 0" [label="{Bloque 0|Hash: 00007994...|PrevHash: 0000|Usuario: Genesis Block|TimeStamp: 10-04-25::13:19:32|Nonce: 6801|Data: genesis@blockchain.com}"];
+"Bloque 1" [label="{Bloque 1|Hash: 00000d9a...|PrevHash: 00007994...|Usuario: Carlos Alberto Gomez Martinez|TimeStamp: 10-04-25::13:19:39|Nonce: 13800|Data: carlos.alberto@usac.com}"];
+"Bloque 0" -> "Bloque 1";
+"Bloque 2" [label="{Bloque 2|Hash: 000069f1...|PrevHash: 00000d9a...|Usuario: Ana Lucia Martinez Lopez|TimeStamp: 10-04-25::13:19:39|Nonce: 19408|Data: ana.lucia@usac.com}"];
+"Bloque 1" -> "Bloque 2";
+}

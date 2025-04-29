@@ -164,8 +164,8 @@ namespace AutoGestPro.Estructuras
 
                 while (actual != null)
                 {
-                    // Crear un nodo para cada vehículo
-                    writer.WriteLine($"node{contador} [label=\"ID: {actual.Vehiculo.Id}\\nModelo: {actual.Vehiculo.Modelo}\"];");
+                    // Crear un nodo para cada vehículo con más detalles
+                    writer.WriteLine($"node{contador} [label=\"ID: {actual.Vehiculo.Id}\\nID Usuario: {actual.Vehiculo.IdUsuario}\\nMarca: {actual.Vehiculo.Marca}\\nModelo: {actual.Vehiculo.Modelo}\\nPlaca: {actual.Vehiculo.Placa}\"];");
 
                     // Crear la conexión hacia adelante
                     if (actual.Siguiente != null)
@@ -182,6 +182,23 @@ namespace AutoGestPro.Estructuras
             }
 
             Console.WriteLine($"✅ Archivo .dot generado en: {filePath}");
+        }
+
+        public List<Vehiculo> ObtenerVehiculosPorUsuario(int idUsuario)
+        {
+            List<Vehiculo> vehiculosUsuario = new List<Vehiculo>();
+            NodoVehiculo? actual = cabeza;
+
+            while (actual != null)
+            {
+                if (actual.Vehiculo.IdUsuario == idUsuario)
+                {
+                    vehiculosUsuario.Add(actual.Vehiculo);
+                }
+                actual = actual.Siguiente;
+            }
+
+            return vehiculosUsuario;
         }
     }
 }

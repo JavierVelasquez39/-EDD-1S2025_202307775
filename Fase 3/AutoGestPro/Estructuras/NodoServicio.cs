@@ -2,6 +2,7 @@ using AutoGestPro.Modelos;
 
 namespace AutoGestPro.Estructuras
 {
+    [Serializable]
     public class NodoServicio
     {
         public Servicio Servicio { get; set; }
