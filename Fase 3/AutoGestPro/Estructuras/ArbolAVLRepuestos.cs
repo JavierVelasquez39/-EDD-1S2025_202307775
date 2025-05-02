@@ -216,5 +216,25 @@ namespace AutoGestPro.Estructuras
                 GenerarDotRecursivo(nodo.Derecho, writer);
             }
         }
+
+        public int ContarNodos()
+        {
+            return ContarNodosRecursivo(raiz);
+        }
+
+        private int ContarNodosRecursivo(NodoAVL? nodo)
+        {
+            if (nodo == null)
+                return 0;
+
+            return 1 + ContarNodosRecursivo(nodo.Izquierdo) + ContarNodosRecursivo(nodo.Derecho);
+        }
+
+        public List<Repuesto> ObtenerTodosLosRepuestos()
+        {
+            List<Repuesto> repuestos = new List<Repuesto>();
+            RecorrerInOrden(repuesto => repuestos.Add(repuesto));
+            return repuestos;
+        }
     }
 }

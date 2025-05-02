@@ -1,5 +1,6 @@
 using AutoGestPro.Modelos;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace AutoGestPro.Estructuras
@@ -20,7 +21,7 @@ namespace AutoGestPro.Estructuras
         }
 
         // Método público para insertar un servicio
-        public void Insertar(Servicio servicio, ArbolAVLRepuestos arbolRepuestos, ListaDobleVehiculos listaVehiculos)
+        public void Insertar(Servicio servicio, ArbolAVLRepuestos arbolRepuestos, ListaDobleVehiculos listaVehiculos, MerkleTree arbolFacturas)
         {
             // Validaciones
             if (arbolRepuestos.Buscar(servicio.Id_Repuesto) == null)
@@ -36,6 +37,19 @@ namespace AutoGestPro.Estructuras
             // Insertar el servicio en el árbol
             raiz = InsertarNodo(raiz, servicio);
             Console.WriteLine($"✅ Servicio con ID {servicio.Id} insertado correctamente.");
+
+            // Generar una factura para el servicio
+            Factura nuevaFactura = new Factura(
+                id: servicio.Id, // Usar el mismo ID del servicio
+                idServicio: servicio.Id,
+                idVehiculo: servicio.Id_Vehiculo,
+                total: servicio.Costo,
+                fecha: DateTime.Now,
+                metodoPago: "Pendiente"
+            );
+
+            arbolFacturas.AddFactura(nuevaFactura);
+            Console.WriteLine($"✅ Factura generada para el servicio con ID {servicio.Id}.");
         }
 
         // Método privado recursivo para insertar un nodo
@@ -167,6 +181,7 @@ namespace AutoGestPro.Estructuras
                    VerificarArbolBinario(nodo.Derecho, nodo.Servicio.Id, max);
         }
 
+        // Método para obtener servicios por vehículo
         public List<Servicio> ObtenerServiciosPorVehiculo(int idVehiculo)
         {
             List<Servicio> servicios = new List<Servicio>();

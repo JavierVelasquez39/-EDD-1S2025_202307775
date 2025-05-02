@@ -58,7 +58,7 @@ namespace AutoGestPro.Estructuras
             Console.WriteLine($"Bloque #{Index} minado con nonce {Nonce} y hash {Hash}");
         }
 
-        private string CalcularHash(string texto)
+        public string CalcularHash(string texto)
         {
             using (SHA256 sha256 = SHA256.Create())
             {

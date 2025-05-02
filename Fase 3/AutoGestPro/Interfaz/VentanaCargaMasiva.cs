@@ -114,16 +114,8 @@ namespace AutoGestPro.Interfaz
                 switch (categoriaSeleccionada)
                 {
                     case "Usuarios":
-                        var usuarios = JsonConvert.DeserializeObject<List<Block>>(jsonData);
-                        if (usuarios != null)
-                        {
-                            foreach (var usuario in usuarios)
-                            {
-                                // Agregar cada bloque al blockchain
-                                blockchainUsuarios.AddBlock(usuario.Usuario, usuario.Correo, usuario.ContraseniaTextoPlano);
-                            }
-                            Console.WriteLine($"📂 Cargados {usuarios.Count} usuarios.");
-                        }
+                        // Usar el método centralizado del Blockchain para cargar usuarios
+                        blockchainUsuarios.CargarUsuariosDesdeJson(filePath);
                         break;
 
                     case "Vehículos":

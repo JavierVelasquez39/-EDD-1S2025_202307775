@@ -1,11 +1,27 @@
 digraph Blockchain {
 rankdir=LR;
 node [shape=record];
-"Block 0" [label="{Index: 0|Usuario: Genesis|Correo: genesis@blockchain.com|Hash: 00007d46bd6b7b42afdb10cccf7850856d5b3a87f83718ca31c67b9288c3822b|PreviousHash: 0000}"];
-"Block 0" [label="{Index: 0|Usuario: Genesis|Correo: genesis@blockchain.com|Hash: 0000e5da3ef88c3e66907606fe84f70da8a2235c894499c2cae12c6b0477505a|PreviousHash: 0000}"];
-"Block 0" -> "Block 0";
-"Block 1" [label="{Index: 1|Usuario: Admin USAC|Correo: admin@usac.com|Hash: 0000ac1cced52c550ae83736f15fb7aa49a75080be83706889d30b540c090025|PreviousHash: 0000e5da3ef88c3e66907606fe84f70da8a2235c894499c2cae12c6b0477505a}"];
+"Block 0" [label="{Index: 0|Usuario: Admin USAC|Correo: admin@usac.com|Hash: 0000b277e4cb35ec14518b3b0e3b64c56e2d8c8b0664e475711fdb8f5ce45818|PreviousHash: 0000}"];
+"Block 1" [label="{Index: 1|Usuario: Carlos Alberto Gomez Martinez|Correo: carlos.alberto@usac.com|Hash: 00000cf4ea62af7508af870ed4643832e2d57dd4094e21381497b25798f26e4b|PreviousHash: 0000b277e4cb35ec14518b3b0e3b64c56e2d8c8b0664e475711fdb8f5ce45818}"];
 "Block 0" -> "Block 1";
-"Block 2" [label="{Index: 2|Usuario: Javier Velasquez|Correo: javier@usac.com|Hash: 000033ecee995b360866a883a58d0a816345e406d5a9493d30ca26abb94549a1|PreviousHash: 0000ac1cced52c550ae83736f15fb7aa49a75080be83706889d30b540c090025}"];
+"Block 2" [label="{Index: 2|Usuario: Ana Lucia Martinez Lopez|Correo: ana.lucia@usac.com|Hash: 0000bf926c9be84b203dfc68bab6c9d50c773bdf14b94493373da975b392c358|PreviousHash: 00000cf4ea62af7508af870ed4643832e2d57dd4094e21381497b25798f26e4b}"];
 "Block 1" -> "Block 2";
+"Block 3" [label="{Index: 3|Usuario: Luis Enrique Perez Ramirez|Correo: luis.enrique@usac.com|Hash: 00008b0dbe27582156fc66515a2fbfe5e057800a0db0db30dca96dfbee498fa6|PreviousHash: 0000bf926c9be84b203dfc68bab6c9d50c773bdf14b94493373da975b392c358}"];
+"Block 2" -> "Block 3";
+"Block 4" [label="{Index: 4|Usuario: Marta Isabel Lopez Perez|Correo: marta.isabel@usac.com|Hash: 000069184bff92ba57cbb48f9d547a8336f62a4e1d53263c04651284c39e3b8f|PreviousHash: 00008b0dbe27582156fc66515a2fbfe5e057800a0db0db30dca96dfbee498fa6}"];
+"Block 3" -> "Block 4";
+"Block 5" [label="{Index: 5|Usuario: Juan Carlos Hernandez Lopez|Correo: juan.carlos@usac.com|Hash: 0000e006b5497e320ee9c6c245b5262febe0c578fbd1850361af856d87b558f1|PreviousHash: 000069184bff92ba57cbb48f9d547a8336f62a4e1d53263c04651284c39e3b8f}"];
+"Block 4" -> "Block 5";
+"Block 6" [label="{Index: 6|Usuario: Maria Fernanda Garcia Lopez|Correo: maria.fernanda@usac.com|Hash: 0000303e0dd81e5d5730254c6baacc10f54f80be98fe9e7a3edb8473d3fa2ce9|PreviousHash: 0000e006b5497e320ee9c6c245b5262febe0c578fbd1850361af856d87b558f1}"];
+"Block 5" -> "Block 6";
+"Block 7" [label="{Index: 7|Usuario: Pedro Pablo Rodriguez Torres|Correo: pedro.pablo@usac.com|Hash: 000083f07a43027bdac9f894a1f8a2a98673cd890e26fbacf5b2b74660fa17b7|PreviousHash: 0000303e0dd81e5d5730254c6baacc10f54f80be98fe9e7a3edb8473d3fa2ce9}"];
+"Block 6" -> "Block 7";
+"Block 8" [label="{Index: 8|Usuario: Laura Isabel Sanchez Morales|Correo: laura.isabel@usac.com|Hash: 00002553847324fd11010585c5b7c471bc9d61d7b02cf360ca921e145aa8de9e|PreviousHash: 000083f07a43027bdac9f894a1f8a2a98673cd890e26fbacf5b2b74660fa17b7}"];
+"Block 7" -> "Block 8";
+"Block 9" [label="{Index: 9|Usuario: Rafael Alejandro Ramirez Diaz|Correo: rafael.alejandro@usac.com|Hash: 000016297cdf1e24740f3805e21f547d3b40cd5d274f65d4e9f98e06869f5986|PreviousHash: 00002553847324fd11010585c5b7c471bc9d61d7b02cf360ca921e145aa8de9e}"];
+"Block 8" -> "Block 9";
+"Block 10" [label="{Index: 10|Usuario: Isabel Cristina Diaz Lopez|Correo: isabel.cristina@usac.com|Hash: 00001f08e8c9b80091fb13a5af2f3a1261e991361f19f5f82ad0014456a54022|PreviousHash: 000016297cdf1e24740f3805e21f547d3b40cd5d274f65d4e9f98e06869f5986}"];
+"Block 9" -> "Block 10";
+"Block 11" [label="{Index: 11|Usuario: Javier Velasquez|Correo: javier@usac.com|Hash: 00000ee490b87cb47d43da9649af7041d592fef2ef458589c3d16fceeb22cdea|PreviousHash: 00001f08e8c9b80091fb13a5af2f3a1261e991361f19f5f82ad0014456a54022}"];
+"Block 10" -> "Block 11";
 }

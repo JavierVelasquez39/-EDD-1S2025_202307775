@@ -2,6 +2,7 @@ using System;
 using Gtk;
 using AutoGestPro.Estructuras;
 using AutoGestPro.Modelos;
+using AutoGestPro.Backup;
 
 namespace AutoGestPro.Interfaz
 {
@@ -118,13 +119,61 @@ namespace AutoGestPro.Interfaz
                     break;
                     
                 case "Generar Backup":
-                    Console.WriteLine("Abrir ventana de Generar Backup");
-                    // Implementar ventana de backup cuando esté disponible
+                    Console.WriteLine("Generando Backup...");
+                    BackupManager.GenerarBackup(
+                        "vehiculos_backup.edd",
+                        "repuestos_backup.edd",
+                        DatosCompartidos.ListaVehiculos,
+                        DatosCompartidos.ArbolRepuestos
+                    );
+                    MessageDialog dialogoExito = new MessageDialog(
+                        this,
+                        DialogFlags.Modal,
+                        MessageType.Info,
+                        ButtonsType.Ok,
+                        "El backup se generó correctamente."
+                    );
+                    dialogoExito.Run();
+                    dialogoExito.Destroy();
                     break;
                     
                 case "Cargar Backup":
-                    Console.WriteLine("Abrir ventana de Cargar Backup");
-                    // Implementar ventana de cargar backup cuando esté disponible
+                    Console.WriteLine("Cargando Backup...");
+                    bool backupCargado = BackupManager.CargarBackup(
+                        "blockchain_usuarios.json",
+                        "vehiculos_backup.edd",
+                        "repuestos_backup.edd",
+                        DatosCompartidos.BlockchainUsuarios,
+                        DatosCompartidos.ListaVehiculos,
+                        DatosCompartidos.ArbolRepuestos
+                    );
+
+                    if (backupCargado)
+                    {
+                        Console.WriteLine("✅ Backup cargado correctamente.");
+                        MessageDialog dialogoCargado = new MessageDialog(
+                            this,
+                            DialogFlags.Modal,
+                            MessageType.Info,
+                            ButtonsType.Ok,
+                            "El backup se cargó correctamente."
+                        );
+                        dialogoCargado.Run();
+                        dialogoCargado.Destroy();
+                    }
+                    else
+                    {
+                        Console.WriteLine("❌ Error al cargar el backup.");
+                        MessageDialog dialogoError = new MessageDialog(
+                            this,
+                            DialogFlags.Modal,
+                            MessageType.Error,
+                            ButtonsType.Ok,
+                            "Ocurrió un error al cargar el backup. Verifique los archivos."
+                        );
+                        dialogoError.Run();
+                        dialogoError.Destroy();
+                    }
                     break;
                     
                 case "Control Logueo":

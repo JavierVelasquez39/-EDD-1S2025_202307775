@@ -200,5 +200,24 @@ namespace AutoGestPro.Estructuras
 
             return vehiculosUsuario;
         }
+
+        public NodoVehiculo? ObtenerCabeza()
+        {
+            return cabeza;
+        }
+
+        public List<Vehiculo> ObtenerTodosLosVehiculos()
+        {
+            List<Vehiculo> vehiculos = new List<Vehiculo>();
+            NodoVehiculo? actual = cabeza;
+
+            while (actual != null)
+            {
+                vehiculos.Add(actual.Vehiculo);
+                actual = actual.Siguiente;
+            }
+
+            return vehiculos;
+}
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using AutoGestPro.Modelos;
 
 namespace AutoGestPro.Estructuras
 {
@@ -19,21 +20,21 @@ namespace AutoGestPro.Estructuras
 
         private void AddGenesisBlock()
         {
-            Block genesisBlock = new Block(0, "Genesis", "genesis@blockchain.com", "0000", "0000");
+            // Crear el bloque génesis con los datos del administrador
+            Block genesisBlock = new Block(0, "Admin USAC", "admin@usac.com", "admin123", "0000");
             genesisBlock.MineBlock(Difficulty);
             Chain.Add(genesisBlock);
+            Console.WriteLine("✅ Bloque génesis creado con el usuario administrador.");
         }
 
         public void AddBlock(string usuario, string correo, string contrasenia)
         {
-            // Validar que los datos no sean nulos o vacíos
             if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(contrasenia))
             {
                 Console.WriteLine("❌ Error: Los datos del bloque no pueden estar vacíos.");
                 return;
             }
 
-            // Validar si el usuario ya existe
             if (Chain.Exists(block => block.Correo != null && block.Correo.Equals(correo, StringComparison.OrdinalIgnoreCase)))
             {
                 Console.WriteLine($"❌ El usuario con correo {correo} ya existe en el blockchain.");
@@ -47,8 +48,48 @@ namespace AutoGestPro.Estructuras
             newBlock.MineBlock(Difficulty);
             Chain.Add(newBlock);
 
-            // Guardar automáticamente el blockchain después de agregar un nuevo bloque
             GuardarEnArchivo("blockchain_usuarios.json");
+        }
+
+        public void CargarUsuariosDesdeJson(string filePath)
+        {
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    Console.WriteLine($"❌ Error: El archivo {filePath} no existe.");
+                    return;
+                }
+
+                string json = File.ReadAllText(filePath);
+                var usuarios = JsonSerializer.Deserialize<List<Usuario>>(json);
+
+                if (usuarios == null || usuarios.Count == 0)
+                {
+                    Console.WriteLine("❌ Error: No se encontraron usuarios en el archivo JSON.");
+                    return;
+                }
+
+                Console.WriteLine($"Archivo leído correctamente: {filePath}");
+
+                foreach (var usuario in usuarios)
+                {
+                    if (string.IsNullOrWhiteSpace(usuario.Nombres) || string.IsNullOrWhiteSpace(usuario.Apellidos) ||
+                        string.IsNullOrWhiteSpace(usuario.Correo) || string.IsNullOrWhiteSpace(usuario.Contrasenia))
+                    {
+                        Console.WriteLine("❌ Error: Los datos del usuario no pueden estar vacíos.");
+                        continue;
+                    }
+
+                    AddBlock($"{usuario.Nombres} {usuario.Apellidos}", usuario.Correo, usuario.Contrasenia);
+                }
+
+                Console.WriteLine($"✅ Usuarios cargados correctamente en el Blockchain.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Error al cargar usuarios desde el JSON: {ex.Message}");
+            }
         }
 
         public Block? AutenticarUsuario(string correo, string contrasenia)
@@ -67,10 +108,10 @@ namespace AutoGestPro.Estructuras
                     continue;
 
                 if (block.Correo != null && block.Correo.Equals(correo, StringComparison.OrdinalIgnoreCase) &&
-                    block.ContraseniaTextoPlano == contrasenia) // Comparar con la contraseña en texto plano
+                    block.ContraseniaTextoPlano == contrasenia)
                 {
                     Console.WriteLine($"Autenticación exitosa para: {block.Usuario}");
-                    return block; // Devolver el bloque completo
+                    return block;
                 }
             }
 
@@ -105,18 +146,8 @@ namespace AutoGestPro.Estructuras
 
                     if (chain != null && chain.Count > 0)
                     {
-                        // Validar los bloques cargados
-                        foreach (var block in chain)
-                        {
-                            if (block.Index > 0 && (string.IsNullOrWhiteSpace(block.Usuario) || string.IsNullOrWhiteSpace(block.Correo)))
-                            {
-                                Console.WriteLine($"⚠️ Bloque inválido encontrado: ID={block.Index}. Datos incompletos.");
-                                continue; // Saltar bloques inválidos
-                            }
-                            blockchain.Chain.Add(block);
-                        }
-
-                        Console.WriteLine($"✅ Blockchain cargado exitosamente desde: {filePath} con {blockchain.Chain.Count} bloques válidos");
+                        blockchain.Chain = chain;
+                        Console.WriteLine($"✅ Blockchain cargado exitosamente desde: {filePath}");
                     }
                 }
                 catch (Exception ex)
@@ -166,6 +197,29 @@ namespace AutoGestPro.Estructuras
             }
 
             Console.WriteLine($"✅ Archivo DOT generado en: {dotFilePath}");
+        }
+
+        public bool ValidarBlockchain()
+        {
+            for (int i = 1; i < Chain.Count; i++)
+            {
+                Block actual = Chain[i];
+                Block anterior = Chain[i - 1];
+
+                if (actual.PreviousHash != anterior.Hash)
+                {
+                    Console.WriteLine($"❌ Error: Blockchain corrupto en el bloque {actual.Index}. PreviousHash no coincide.");
+                    return false;
+                }
+
+                if (actual.Hash != actual.GenerateHash())
+                {
+                    Console.WriteLine($"❌ Error: Blockchain corrupto en el bloque {actual.Index}. Hash no válido.");
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

@@ -18,6 +18,10 @@ namespace AutoGestPro
                 }
                 return _blockchainUsuarios;
             }
+            set
+            {
+                _blockchainUsuarios = value;
+            }
         }
 
         // Bloque del usuario actual que ha iniciado sesión

@@ -170,10 +170,40 @@ namespace AutoGestPro.Interfaz
             treeViewFacturas = new TreeView();
 
             // Configurar columnas
-            treeViewFacturas.AppendColumn("ID", new CellRendererText(), "text", 0);
-            treeViewFacturas.AppendColumn("Fecha", new CellRendererText(), "text", 1);
-            treeViewFacturas.AppendColumn("Total", new CellRendererText(), "text", 2);
-            treeViewFacturas.AppendColumn("Estado", new CellRendererText(), "text", 3);
+            treeViewFacturas.AppendColumn("ID Servicio", new CellRendererText(), "text", 0);
+            treeViewFacturas.AppendColumn("Total", new CellRendererText(), "text", 1);
+            treeViewFacturas.AppendColumn("Fecha", new CellRendererText(), "text", 2);
+            treeViewFacturas.AppendColumn("Método de Pago", new CellRendererText(), "text", 3);
+
+            // Crear modelo de datos
+            ListStore listStore = new ListStore(typeof(int), typeof(decimal), typeof(string), typeof(string));
+            treeViewFacturas.Model = listStore;
+
+            // Obtener los vehículos del usuario actual
+            var vehiculos = DatosCompartidos.ListaVehiculos.ObtenerVehiculosPorUsuario(usuarioActual.Index);
+
+            // Obtener las facturas asociadas a los vehículos del usuario actual
+            foreach (var vehiculo in vehiculos)
+            {
+                foreach (var leaf in DatosCompartidos.ArbolFacturas.Leaves)
+                {
+                    if (leaf.Data != null)
+                    {
+                        string[] datos = leaf.Data.Split('|');
+                        int idVehiculo = int.Parse(datos[2]);
+
+                        if (idVehiculo == vehiculo.Id) // Verificar que la factura pertenece al vehículo del usuario
+                        {
+                            listStore.AppendValues(
+                                int.Parse(datos[1]), // ID Servicio
+                                decimal.Parse(datos[3]), // Total
+                                datos[4], // Fecha
+                                datos[5] // Método de Pago
+                            );
+                        }
+                    }
+                }
+            }
 
             scrollWin.Add(treeViewFacturas);
             box.PackStart(scrollWin, true, true, 0);
@@ -202,15 +232,29 @@ namespace AutoGestPro.Interfaz
             this.Destroy();
         }
 
-        private void OnAplicarFiltro(object sender, EventArgs e)
-        {
-            string tipoRecorrido = comboRecorrido.ActiveText;
-            MostrarMensaje("Información", $"Filtrando servicios por recorrido: {tipoRecorrido}");
-        }
-
         private void OnPagarFacturas(object sender, EventArgs e)
         {
-            MostrarMensaje("Información", "Procesando pago de facturas seleccionadas...");
+            TreeSelection selection = treeViewFacturas.Selection;
+            if (selection.GetSelected(out TreeIter iter))
+            {
+                // Obtener el modelo de datos asociado al TreeView
+                ListStore listStore = (ListStore)treeViewFacturas.Model;
+
+                // Obtener el ID de la factura seleccionada
+                int idFactura = (int)listStore.GetValue(iter, 0);
+
+                // Eliminar la factura del árbol de Merkle
+                DatosCompartidos.ArbolFacturas.EliminarFactura(idFactura);
+
+                // Actualizar la interfaz
+                MostrarMensaje("Información", $"Factura con ID {idFactura} pagada exitosamente.");
+                notebook.RemovePage(2); // Eliminar la pestaña de facturas
+                notebook.AppendPage(CrearSeccionFacturas(), new Label("Facturas Pendientes")); // Volver a crearla
+            }
+            else
+            {
+                MostrarMensaje("Error", "Por favor, seleccione una factura para pagar.");
+            }
         }
 
         private void MostrarMensaje(string titulo, string mensaje)

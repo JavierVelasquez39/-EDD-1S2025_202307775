@@ -1,6 +1,6 @@
 graph GrafoNoDirigido {
 node [shape=circle];
-"1" [label="Vehiculo: 1"];
-"1" -- "2";
 "2" [label="Vehiculo: 2"];
+"1" [label="Repuesto: 1"];
+"1" -- "2";
 }

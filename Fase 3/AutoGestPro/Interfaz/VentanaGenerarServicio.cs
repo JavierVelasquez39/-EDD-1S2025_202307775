@@ -148,10 +148,10 @@ namespace AutoGestPro.Interfaz
 
                 // Crear el servicio y agregarlo al árbol binario
                 Servicio nuevoServicio = new Servicio(idServicio, idRepuesto, idVehiculo, detalles, costo);
-                arbolServicios.Insertar(nuevoServicio, arbolRepuestos, listaVehiculos);
+                arbolServicios.Insertar(nuevoServicio, arbolRepuestos, listaVehiculos, arbolFacturas);
 
                 // Crear la factura y agregarla al árbol de Merkle
-                Factura nuevaFactura = new Factura(idServicio, idServicio, costo, fecha, metodoPago);
+                Factura nuevaFactura = new Factura(idServicio, idServicio, idVehiculo, costo, fecha, metodoPago);
                 arbolFacturas.AddFactura(nuevaFactura);
 
                 // Actualizar el grafo no dirigido
